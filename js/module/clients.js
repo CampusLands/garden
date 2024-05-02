@@ -21,7 +21,12 @@ export const getAll2 = async()=>{
 }
 
 
-
+// Obtener la informacion de un empleado por su codigo
+export const getAllClients = async() =>{
+    let res = await fetch(`http://localhost:5501/clients`);
+    let data = await res.json();
+    return data;
+}
 
 // Consultas multitabla (Composición interna)
 

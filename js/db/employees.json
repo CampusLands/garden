@@ -291,7 +291,7 @@
     {
         "employee_code": 25,
         "name": "Takuma",
-        "lastname1": "Nomura",
+        "lastname1": "Nomura", 
         "lastname2": "",
         "extension": "8735",
         "email": "[tnomura@gardening.com](mailto:tnomura@gardening.com)",

@@ -7,6 +7,7 @@ import {
     getAllEmployeesWithBossAndCodeSeven,
     getBossFullNameAndEmail,
     getAllEmployeesNotSalesReps,
+    getAll3,
     getAll
 } from "./module/employees.js";
 import { 
