@@ -88,7 +88,7 @@ export const getAll3 = async()=>{
 // 12. Devuelve un listado con los datos de los empleados que no 
 // tienen clientes asociados y el nombre de su jefe asociado
 
-export const getAll = async()=>{
+export const getAllEmployNotClients = async()=>{
     let dataClients = await getAllClients();
     let dataEmployees = await getAllEmploy();
     let code_employee_sales_manager = [...new Set(dataClients.map(val => val.code_employee_sales_manager))]

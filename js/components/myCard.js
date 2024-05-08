@@ -2,6 +2,10 @@ import {
     getAllClientsFromSpainAndRepresentative11Or30, 
     getClientsEmploy 
 } from "../module/clients.js";
+import {
+    getAllEmployNotClients 
+} from "../module/employees.js";
+
 export class Mycard extends HTMLElement{
     constructor(){
         super();
@@ -53,11 +57,35 @@ export class Mycard extends HTMLElement{
             `;
         });
     }
+    async getAllEmployNotClientsDesign(){
+        let data = await getAllEmployNotClients();
+        data.forEach(val => {
+            this.shadowRoot.innerHTML += /*html*/`
+            
+                <div class="report__card">
+                    <div class="card__title">
+                        <div>${val.name} ${val.lastname1} ${val.lastname2} # ${val.employee_code}</div>
+                    </div>
+                    <div class="card__body">
+                        <div class="body__marck">
+                            <p><b>Id: </b> ${val.id}</p>
+                            <p><b>Cargo: </b>${val.position}</p>
+                            <p><b>Oficina: </b>${val.code_office}</p>
+                            <p><b>Jefe encargado: </b>${val.name_boss}</p>
+                            <p><b>Numero de extencion: </b>${val.extension}</p>
+                            <p><b>Correo electronico: </b>${val.email}</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+    }
     static get observedAttributes() {
         return ["logic"];
     }
     attributeChangedCallback(name, old, now) {
         if(name=="logic" && now=="client_6") this.getClientsEmployDesign()
         if(name=="logic" && now=="client_16") this.getAllClientsFromSpainAndRepresentative11Or30Design()
+        if(name=="logic" && now=="employ_12") this.getAllEmployNotClientsDesign()
     }
 }
